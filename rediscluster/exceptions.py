@@ -11,6 +11,12 @@ class RedisClusterException(Exception):
     pass
 
 
+class RedisClusterUninitialized(Exception):
+    """
+    """
+    message = "redis host not initiialized"
+    pass
+
 class RedisClusterError(Exception):
     """
     """

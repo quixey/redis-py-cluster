@@ -1,6 +1,11 @@
 Redis cluster setup
 ===================
 
+Tasks:
+- given a set of N redis nodes, create a new cluster with p masters and q slaves, where p+q=N
+- given a working cluster, add p masters, rebalance the cluster nodes, and add q nodes
+- given a working cluster, remove either a given node_id, OR all nodes belonging to a specific host
+
 
 
 Manually

@@ -5,7 +5,7 @@ import random
 
 # rediscluster imports
 from .crc import crc16
-from .exceptions import RedisClusterException
+from .exceptions import RedisClusterException, RedisClusterUninitialized
 
 # 3rd party imports
 from redis import StrictRedis
@@ -146,6 +146,11 @@ class NodeManager(object):
                 continue
             except Exception:
                 raise RedisClusterException("ERROR sending 'cluster slots' command to redis server: {0}".format(node))
+
+            try:
+                assert len(cluster_slots) > 0
+            except AssertionError:
+                raise RedisClusterUninitialized("ERROR 'cluster slots' command to redis server: {0} returns empty list [] ".format(node))
 
             all_slots_covered = True
 
