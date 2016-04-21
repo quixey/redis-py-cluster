@@ -1,4 +1,5 @@
 redis>=2.10.2
+hiredis
 
 -e git+ssh://git@github.com:quixey/redis-trib.py.git@0.4.1#egg=redis-trib.py
 
